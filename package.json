@@ -2,7 +2,7 @@
   "name": "@kovsu/create",
   "version": "0.1.0",
   "description": "Use cli to create project from templates",
-  "main": "index.js",
+  "main": "./dist/index.mjs",
   "scripts": {
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.json,.md",
     "dev": "tsup --watch",
@@ -12,12 +12,17 @@
     "access": "public"
   },
   "keywords": [],
-  "author": "v",
-  "license": "ISC",
+  "author": "Konv Suu",
+  "license": "MIT",
   "devDependencies": {
     "@kovsu/eslint-config-ts": "^0.2.0",
+    "@types/inquirer": "^9.0.3",
+    "@types/node": "^18.11.10",
     "eslint": "^8.28.0",
     "tsup": "^6.5.0",
     "typescript": "^4.9.3"
+  },
+  "dependencies": {
+    "inquirer": "^9.1.4"
   }
 }

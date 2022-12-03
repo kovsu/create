@@ -1,2 +1,3 @@
 #!/usr/bin/env node
-require("./dist/index.js");
+import { run } from "./dist/index.mjs";
+run();

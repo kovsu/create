@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 
-const CHOICES = fs.readdirSync(path.resolve(path.resolve(), "src/templates"));
+const CHOICES = fs.readdirSync(path.resolve(path.resolve(), "templates"));
 
 export const QUESTIONS = [
   {

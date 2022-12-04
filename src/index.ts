@@ -52,38 +52,43 @@ export async function run() {
 
   spinner.success({ text: "Template downloaded!", mark: "√" });
 
-  // spinner.start({ text: "Init package.json...", color: "green" });
-  // const pkgPath = resolve(process.cwd(), projectName);
+  spinner.start({ text: "Init package.json...", color: "green" });
+  const pkgPath = resolve(process.cwd(), projectName);
 
-  // let pkg = await readPackageJSON(pkgPath);
-  // const dev = ["eslint"];
+  let pkg = await readPackageJSON(pkgPath);
+  console.log(pkg);
 
-  // if (tailwindSetup) {
-  //   pkg.scripts!["tailwind:init"] = "tailwindcss init -p";
-  //   dev.push(...["tailwindcss", "postcss", "autoprefixer"]);
-  // }
+  const dev = ["eslint"];
 
-  // const eslintConfig = eslintSetup(tempChose)!;
+  if (tailwindSetup) {
+    pkg.scripts!["tailwind:init"] = "tailwindcss init -p";
+    dev.push(...["tailwindcss", "postcss", "autoprefixer"]);
+  }
 
-  // dev.push(...eslintConfig);
-  // pkg.eslintConfig = {
-  //   extends: eslintConfig[0],
-  // };
+  const eslintRes = eslintSetup(tempChose)!;
 
-  // for (const d of dev)
-  //   pkg.devDependencies![d] = `^${await npmLatestVersion(d)}`;
+  dev.push(eslintRes);
+  pkg.eslintConfig = {
+    extends: eslintRes,
+  };
 
-  // const name = commandResult("git config --get user.name");
-  // const email = commandResult("git config --get user.email");
+  pkg.devDependencies = {};
+  for (const d of dev) {
+    console.log(d);
+    pkg.devDependencies[d] = `^${await npmLatestVersion(d)}`;
+  }
 
-  // pkg = {
-  //   name: projectName,
-  //   type: "module",
-  //   author: `${name} <${email}>`,
-  //   ...pkg,
-  // };
+  const name = commandResult("git config --get user.name");
+  const email = commandResult("git config --get user.email");
 
-  // // await writePackageJSON(resolve(pkgPath, "package.json"), pkg);
-  // spinner.success({ text: "Done!", mark: ":)" });
+  pkg = {
+    name: projectName,
+    type: "module",
+    author: `${name} <${email}>`,
+    ...pkg,
+  };
+
+  await writePackageJSON(resolve(pkgPath, "package.json"), pkg);
+  spinner.success({ text: "Done!", mark: ":)" });
 }
 

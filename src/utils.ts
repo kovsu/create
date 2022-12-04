@@ -10,13 +10,12 @@ export function commandResult(cmd: string) {
 }
 
 export function eslintSetup(temp: string) {
-  switch (temp) {
-    case "vue":
-      return ["@kovsu/eslint-config-vue"];
-    case "ts":
-      return ["@kovsu/eslint-config-ts", "typescript"];
-    case "basic":
-      return ["@kovsu/eslint-config-basic"];
-  }
+  let res = "@kovsu/eslint-config-basic";
+  if (temp === "vue")
+    res = "@kovsu/eslint-config-vue";
+  else if (temp === "ts")
+    res = "@kovsu/eslint-config-ts";
+
+  return res;
 }
 

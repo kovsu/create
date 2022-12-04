@@ -19,3 +19,21 @@ export function eslintSetup(temp: string) {
   return res;
 }
 
+export function ending(temp: string, projectName: string) {
+  if (temp === "basic") return "";
+
+  let res = `
+    cd ${projectName}
+    npm install
+  `;
+  if (temp === "vue") {
+    res += `  
+    npm run tailwind:init
+    Copy these into './src/index.css':
+      @tailwind base;
+      @tailwind components;
+      @tailwind utilities;`;
+  }
+
+  return res;
+}

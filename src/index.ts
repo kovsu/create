@@ -4,7 +4,7 @@ import { downloadTemplate } from "giget";
 import { readPackageJSON, writePackageJSON } from "pkg-types";
 import { createSpinner } from "nanospinner";
 import { QUESTIONS } from "./questions";
-import { commandResult, eslintSetup, npmLatestVersion } from "./utils";
+import { commandResult, ending, eslintSetup, npmLatestVersion } from "./utils";
 
 interface IAnswers {
   tempChose: string
@@ -19,6 +19,7 @@ async function tempRes() {
   };
 
   const { tempChose, projectName } = await inquirer.prompt(QUESTIONS);
+
   res.tempChose = tempChose;
   res.projectName = projectName;
 
@@ -56,7 +57,6 @@ export async function run() {
   const pkgPath = resolve(process.cwd(), projectName);
 
   let pkg = await readPackageJSON(pkgPath);
-  console.log(pkg);
 
   const dev = ["eslint"];
 
@@ -87,6 +87,9 @@ export async function run() {
   };
 
   await writePackageJSON(resolve(pkgPath, "package.json"), pkg);
-  spinner.success({ text: "Done!", mark: ":)" });
+  spinner.success({ text: "Done! Now Run:", mark: "√" });
+  spinner.clear();
+
+  console.log(ending(tempChose, projectName));
 }
 

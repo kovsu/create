@@ -1,8 +1,9 @@
 import fs from "fs";
-import path from "path";
-// import chalk from "chalk";
+import { dirname, resolve } from "path";
+import { fileURLToPath } from "url";
 
-const CHOICES = fs.readdirSync(path.resolve(path.resolve(), "templates"));
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const CHOICES = fs.readdirSync(resolve(`${__dirname}`, "../templates"));
 
 export const QUESTIONS = [
   {
@@ -20,11 +21,5 @@ export const QUESTIONS = [
       if (/^([A-Za-z\-\_\d])+$/.test(input)) return true;
       else return "Project name may only include letters, numbers, underscores and hashes.";
     },
-  },
-  {
-    name: "tailwindSetup",
-    type: "confirm",
-    message: "Tailwind setup:",
-    default: false,
   },
 ];

@@ -73,10 +73,8 @@ export async function run() {
   };
 
   pkg.devDependencies = {};
-  for (const d of dev) {
-    console.log(d);
+  for (const d of dev)
     pkg.devDependencies[d] = `^${await npmLatestVersion(d)}`;
-  }
 
   const name = commandResult("git config --get user.name");
   const email = commandResult("git config --get user.email");

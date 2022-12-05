@@ -11,8 +11,9 @@ create
 ```
 
 ## To do
-When I don't connect to the Internet or I want to quickly setup a project, so I need to use the local template.
-So it means that I need to contain `./templates` folder into the package I publish.
+Sometimes if Internet doesn't work or you just want to setup a project quickly, then the local templates are more preferable.
+That means `./templates` folder should be added into the final package.
+
 
 - identify the local template folder
 - copy the local template folder to the target folder

@@ -20,8 +20,6 @@ export function eslintSetup(temp: string) {
 }
 
 export function ending(temp: string, projectName: string) {
-  if (temp === "basic") return "";
-
   let res = `
     cd ${projectName}
     npm install

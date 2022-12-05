@@ -1,6 +1,6 @@
 {
   "name": "@kovsu/create",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Use cli to create project from templates",
   "type": "module",
   "main": "./dist/index.mjs",

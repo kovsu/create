@@ -60,9 +60,6 @@ export async function run() {
 
   const dev = ["eslint"];
 
-  if (tempChose === "ts")
-    dev.push("typescript");
-
   if (tailwindSetup) {
     pkg.scripts!["tailwind:init"] = "tailwindcss init -p";
     dev.push(...["tailwindcss", "postcss", "autoprefixer"]);
@@ -75,7 +72,7 @@ export async function run() {
     extends: eslintRes,
   };
 
-  pkg.devDependencies = {};
+  pkg.devDependencies = { ...pkg.devDependencies };
   for (const d of dev)
     pkg.devDependencies[d] = `^${await npmLatestVersion(d)}`;
 

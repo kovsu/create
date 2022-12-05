@@ -19,12 +19,12 @@ export function eslintSetup(temp: string) {
   return res;
 }
 
-export function ending(temp: string, projectName: string) {
+export function ending(temp: string, projectName: string, tailwindSetup = false) {
   let res = `
     cd ${projectName}
     npm install
   `;
-  if (temp === "vue") {
+  if (temp === "vue" && tailwindSetup) {
     res += `  
     npm run tailwind:init
     Copy these into './src/index.css':

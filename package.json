@@ -1,9 +1,18 @@
 {
   "name": "@kovsu/create",
+  "type": "module",
   "version": "0.6.1",
   "description": "Use cli to create project from templates",
-  "type": "module",
+  "author": "Konv Suu",
+  "license": "MIT",
+  "keywords": [
+    "cli",
+    "templates"
+  ],
   "main": "./dist/index.mjs",
+  "bin": {
+    "create": "./bin.js"
+  },
   "files": [
     "dist",
     "bin.js"
@@ -14,18 +23,14 @@
     "build": "unbuild",
     "create": "node bin.js"
   },
-  "bin": {
-    "create": "./bin.js"
-  },
   "publishConfig": {
     "access": "public"
   },
-  "keywords": [
-    "cli",
-    "templates"
-  ],
-  "author": "Konv Suu",
-  "license": "MIT",
+  "dependencies": {
+    "inquirer": "^8.2.0",
+    "nanospinner": "^1.1.0",
+    "node-fetch-native": "^1.0.1"
+  },
   "devDependencies": {
     "@kovsu/eslint-config-ts": "^0.2.0",
     "@types/inquirer": "^9.0.3",
@@ -35,10 +40,5 @@
     "pkg-types": "^1.0.1",
     "typescript": "^4.9.3",
     "unbuild": "^1.0.1"
-  },
-  "dependencies": {
-    "inquirer": "^8.2.0",
-    "nanospinner": "^1.1.0",
-    "node-fetch-native": "^1.0.1"
   }
 }

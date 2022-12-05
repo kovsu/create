@@ -90,6 +90,6 @@ export async function run() {
   spinner.success({ text: "Done! Now Run:", mark: "√" });
   spinner.clear();
 
-  console.log(ending(tempChose, projectName));
+  console.log(ending(tempChose, projectName, tailwindSetup));
 }
 

@@ -1,10 +1,8 @@
 {
   "description": "",
-  "main": "./dist/index.mjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "files": [
-    "dist"
+  "license": "MIT",
+  "keywords": [
+    "typescript"
   ],
   "exports": {
     ".": {
@@ -13,15 +11,17 @@
       "import": "./dist/index.mjs"
     }
   },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "unbuild --stub",
     "build": "unbuild",
     "test": "vitest"
   },
-  "keywords": [
-    "typescript"
-  ],
-  "license": "MIT",
   "devDependencies": {
     "typescript": "^4.9.3",
     "unbuild": "^1.0.1",

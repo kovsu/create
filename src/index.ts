@@ -60,6 +60,9 @@ export async function run() {
 
   const dev = ["eslint"];
 
+  if (tempChose === "ts")
+    dev.push("typescript");
+
   if (tailwindSetup) {
     pkg.scripts!["tailwind:init"] = "tailwindcss init -p";
     dev.push(...["tailwindcss", "postcss", "autoprefixer"]);

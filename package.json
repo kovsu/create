@@ -1,0 +1,28 @@
+{
+  "name": "@kovsu/create",
+  "version": "0.7.0",
+  "description": "A cli tool to create a new project with a template",
+  "author": "Konv Suu <hi@kovsu.com>",
+  "license": "ISC",
+  "keywords": [
+    "create",
+    "cli",
+    "template",
+    "project"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "run": "node dist/index.js"
+  },
+  "dependencies": {
+    "@inquirer/input": "^1.2.6",
+    "@inquirer/select": "^1.2.6",
+    "eslint": "^8.46.0"
+  },
+  "devDependencies": {
+    "@kovsu/eslint-config-ts": "^0.2.0",
+    "tsup": "^7.1.0"
+  }
+}

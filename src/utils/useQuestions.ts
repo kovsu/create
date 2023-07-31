@@ -1,24 +1,31 @@
-import select from "@inquirer/select";
-import input from "@inquirer/input";
+import process from "node:process";
+import * as p from "@clack/prompts";
 
 export const useQuestions = async () => {
-  const answer = await input({ message: "Enter your project name:" });
-  const template = await select({
-    message: "Select a starter template:",
-    choices: [
-      {
-        name: "ts",
-        value: "ts",
+  const { projectName, templateName } = await p.group(
+    {
+      projectName: () => p.text({ message: "Enter your project name:", defaultValue: "mellow-go" }),
+      templateName: async ({ results: { projectName } }) =>
+        p.select({
+          message: `Choose a template for ${projectName}:`,
+          initialValue: "ts",
+          options: [
+            { value: "ts", label: "Typescript" },
+            { value: "vue", label: "Vue" },
+          ],
+        }),
+    },
+    {
+      onCancel: () => {
+        p.cancel("Operation cancelled.");
+        process.exit(0);
       },
-      {
-        name: "vue",
-        value: "vue",
-      },
-    ],
-  });
+    },
+
+  );
 
   return {
-    answer,
-    template,
+    projectName,
+    templateName,
   };
 };

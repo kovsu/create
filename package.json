@@ -1,28 +1,36 @@
 {
   "name": "@kovsu/create",
-  "version": "0.7.0",
+  "type": "module",
+  "version": "0.7.2",
   "description": "A cli tool to create a new project with a template",
   "author": "Konv Suu <hi@kovsu.com>",
-  "license": "ISC",
+  "license": "MIT",
   "keywords": [
     "create",
     "cli",
     "template",
     "project"
   ],
-  "main": "index.js",
+  "bin": "bin.js",
+  "files": [
+    "dist",
+    "bin.js"
+  ],
   "scripts": {
+    "lint:fix": "eslint --fix .",
     "build": "tsup",
     "dev": "tsup --watch",
-    "run": "node dist/index.js"
+    "run": "node ./bin.js"
   },
   "dependencies": {
-    "@inquirer/input": "^1.2.6",
-    "@inquirer/select": "^1.2.6",
-    "eslint": "^8.46.0"
+    "@clack/prompts": "^0.6.3",
+    "eslint": "^8.46.0",
+    "giget": "^1.1.2",
+    "picocolors": "^1.0.0"
   },
   "devDependencies": {
     "@kovsu/eslint-config-ts": "^0.2.0",
+    "@types/node": "^20.4.5",
     "tsup": "^7.1.0"
   }
 }

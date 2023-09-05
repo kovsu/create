@@ -1,7 +1,7 @@
 {
   "name": "@kovsu/create",
   "type": "module",
-  "version": "0.7.3",
+  "version": "0.7.4",
   "description": "A cli tool to create a new project with a template",
   "author": "Konv Suu <hi@kovsu.com>",
   "license": "MIT",
@@ -14,7 +14,7 @@
   "bin": "bin.mjs",
   "files": [
     "dist",
-    "bin.js"
+    "bin.mjs"
   ],
   "scripts": {
     "lint:fix": "eslint --fix .",

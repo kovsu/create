@@ -1,7 +1,7 @@
 {
   "name": "@kovsu/create",
   "type": "module",
-  "version": "0.7.2",
+  "version": "0.7.3",
   "description": "A cli tool to create a new project with a template",
   "author": "Konv Suu <hi@kovsu.com>",
   "license": "MIT",
@@ -11,7 +11,7 @@
     "template",
     "project"
   ],
-  "bin": "bin.js",
+  "bin": "bin.mjs",
   "files": [
     "dist",
     "bin.js"
@@ -20,7 +20,7 @@
     "lint:fix": "eslint --fix .",
     "build": "tsup",
     "dev": "tsup --watch",
-    "run": "node ./bin.js"
+    "run": "node ./bin.mjs"
   },
   "dependencies": {
     "@clack/prompts": "^0.6.3",
